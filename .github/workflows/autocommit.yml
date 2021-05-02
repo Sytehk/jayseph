@@ -20,19 +20,13 @@ jobs:
 
       - name: Modify last update
         run: |
-         MY_STRING=$(cat << EOF
-          first line
-          second line
-          third line
-          EOF
-          )
-          echo "MY_STRING<<EOF" >> $GITHUB_ENV
-          echo "$MY_STRING" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-        id: my_string
-      - name: display string
-        run: |
-          echo "The string is: ${{ env.MY_STRING }}"
+         description="dfdfdfdfdfd \n ghhghffgf \n ddfdfdfddg"
+          echo $description
+          description="${description//'%'/'%25'}"
+          description="${description//$'\n'/'%0A'}"
+          description="${description//$'\r'/'%0D'}"
+          echo "::set-output name=description::$description"
+          echo $description > LAST_UPDATED
           
       - name: Commit changes
         run: |
