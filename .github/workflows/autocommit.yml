@@ -20,10 +20,10 @@ jobs:
 
       - name: Modify last update
         run: |
-          d="code to be executed if condition is true \n ffffffff \n vvvvvvvv" |
-          c="code to be executed if condition is true \n ffffffff \n vvvvvvvv" |
+          d="code to be executed if condition is true \n ffffffff \n vvvvvvvv | hhhhhhh | hhhhhhhhhhhh"
+          c="code to be executed if condition is true \n ffffffff \n vvvvvvvv"
           a="code to be executed if condition is true \n ffffffff \n vvvvvvvv"
-          echo $d,$c,$a > LAST_UPDATED
+          echo $d|$c|$a > LAST_UPDATED
           
       - name: Commit changes
         run: |
