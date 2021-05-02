@@ -20,7 +20,7 @@ jobs:
 
       - name: Modify last update
         run: |
-          d="code to be executed if condition is true \n ffffffff \n vvvvvvvv | hhhhhhh | hhhhhhhhhhhh"
+          d="code to be executed if condition is true"
           c="code to be executed if condition is true \n ffffffff \n vvvvvvvv"
           a="code to be executed if condition is true \n ffffffff \n vvvvvvvv"
           echo $d|$c|$a > LAST_UPDATED
