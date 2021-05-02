@@ -20,7 +20,7 @@ jobs:
 
       - name: Modify last update
         run: |
-          d=`if (condition) {code to be executed if condition is true;}\n ffffffff \n vvvvvvvv`
+          d=`code to be executed if condition is true \n ffffffff \n vvvvvvvv`
           echo $d > LAST_UPDATED
           
       - name: Commit changes
