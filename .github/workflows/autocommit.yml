@@ -20,8 +20,19 @@ jobs:
 
       - name: Modify last update
         run: |
-          d="code to be executed if condition is true | jjjjjjjjj | jjjjjjjjjjjjj"
-          echo $d > LAST_UPDATED
+          MY_STRING=$(cat << EOF
+          first line
+          second line
+          third line
+          EOF
+          )
+          echo "MY_STRING<<EOF" >> $GITHUB_ENV
+          echo "$MY_STRING" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+        id: my_string
+      - name: display string
+        run: |
+          echo ${{ env.MY_STRING }} > LAST_UPDATED
           
       - name: Commit changes
         run: |
