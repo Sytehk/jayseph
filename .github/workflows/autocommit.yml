@@ -20,7 +20,7 @@ jobs:
 
       - name: Modify last update
         run: |
-          MY_STRING=$(cat << EOF
+         MY_STRING=$(cat << EOF
           first line
           second line
           third line
@@ -32,7 +32,7 @@ jobs:
         id: my_string
       - name: display string
         run: |
-          echo ${{ env.MY_STRING }} > LAST_UPDATED
+          echo "The string is: ${{ env.MY_STRING }}"
           
       - name: Commit changes
         run: |
