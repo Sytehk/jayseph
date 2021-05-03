@@ -17,11 +17,8 @@ jobs:
         with:
          persist-credentials: false
          fetch-depth: 0
-         
-      - name: write date
-        run: |
-          d=`date '+%Y-%m-%dT%H:%M:%SZ'`
-          echo $d > LAST_UPDATED
+
+
 
       - name: Modify last update
         run: |
@@ -256,7 +253,7 @@ jobs:
       - name: display string
         run: |
           d=`date '+%Y-%m-%dT%H:%M:%SZ'`
-          echo "The string is: ${{ env.MY_STRING }}"
+
           echo "The string is: ${{ env.MY_STRING }}", $d > LAST_UPDATED
           
       - name: Commit changes
