@@ -29,7 +29,7 @@ jobs:
           echo "MY_STRING<<EOF" >> $GITHUB_ENV
           echo "$MY_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-          echo $env.MY_STRING > LAST_UPDATED
+          echo "The string is: ${{ env.MY_STRING }}" > LAST_UPDATED
         id: my_string
       - name: display string
         run: |
