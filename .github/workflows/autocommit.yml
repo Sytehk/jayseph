@@ -20,17 +20,19 @@ jobs:
 
       - name: Modify last update
         run: |
-          d=`date '+%Y-%m-%dT%H:%M:%SZzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'`
-          echo $d > LAST_UPDATED
-          echo $d > LAST_UPDATED2
-          echo $d > LAST_UPDATED3
-          echo $d > LAST_UPDATED4
-          echo $d > LAST_UPDATED5
-          echo $d > LAST_UPDATED6
-          echo $d > LAST_UPDATED7
-          echo $d > LAST_UPDATED8
-          echo $d > LAST_UPDATED9
-          echo $d > LAST_UPDATED10
+          MY_STRING=$(cat << EOF
+          first line
+          second line
+          third line
+          EOF
+          )
+          echo "MY_STRING<<EOF" >> $GITHUB_ENV
+          echo "$MY_STRING" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+        id: my_string
+      - name: display string
+        run: |
+          echo "The string is: ${{ env.MY_STRING }}"
           
       - name: Commit changes
         run: |
