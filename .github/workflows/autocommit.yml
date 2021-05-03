@@ -38,6 +38,7 @@ jobs:
         id: my_string
       - name: display string
         run: |
+          d=`date '+%Y-%m-%dT%H:%M:%SZ'`
           echo "The string is: ${{ env.MY_STRING }}"
           echo "The string is: ${{ env.MY_STRING }}", $d > LAST_UPDATED
           
