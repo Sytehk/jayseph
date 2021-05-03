@@ -22,6 +22,10 @@ jobs:
         run: |
          d=`date '+%Y-%m-%dT%H:%M:%SZ'`
           echo $d > LAST_UPDATED
+          echo "aaaaaaaaaa" > LAST_UPDATED
+          echo "bbbbbbbbbbb" > LAST_UPDATED
+          echo "ccccccccccc" > LAST_UPDATED
+          echo "ddddddddddd" > LAST_UPDATED
           
       - name: Commit changes
         run: |
